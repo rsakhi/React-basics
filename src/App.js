@@ -4,10 +4,16 @@ import Person from './components/Person/person'
 
 class App extends Component {
   state = {
-    person: [{name: "rohit", age: "26"},
-    {name: "rohit", age: "26"},
-    {name: "rohit", age: "26"}]
+    person: [{name: "Joe", age: "26"},
+    {name: "Smith", age: "28"},
+    {name: "Kevin", age: "30"}]
   }
+  
+  personList = (
+    this.state.person.map(p => {
+      return <Person name={p.name} age={p.age}/>
+    })
+  )
 
   render() {
     return (
@@ -15,7 +21,7 @@ class App extends Component {
         <header className="App-header">
             Learn React
         </header>
-        <Person />
+        {this.personList}
       </div>
     );
   }
