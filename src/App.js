@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
+import Person from './components/Person/person'
 
 class App extends Component {
   state = {
-    person: [{name: "rohit"}]
+    person: [{name: "rohit", age: "26"},
+    {name: "rohit", age: "26"},
+    {name: "rohit", age: "26"}]
   }
 
   render() {
@@ -12,9 +15,7 @@ class App extends Component {
         <header className="App-header">
             Learn React
         </header>
-        <div className="person">
-          Rohit Sakhi
-        </div>
+        <Person />
       </div>
     );
   }
