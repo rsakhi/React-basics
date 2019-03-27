@@ -10,16 +10,21 @@ class App extends Component {
   }
   
   clickHandler = (name) => {
-    alert(name)
+    // alert(name)
   }
   
+  changeHandler = (index,event) => {
+    const person = [...this.state.person]
+    person[index].name = "jjj"
+    this.setState(person = person);
+  }
 
   render() {
     const personList = (
-      this.state.person.map(p => {
+      this.state.person.map((p,index) => {
         return <Person name={p.name} age={p.age}
         cliked={() => this.clickHandler(p.name)}
-        changed={this.changeHandler}
+        changed={(event) => this.changeHandler(index)}
         />
       })
     )
