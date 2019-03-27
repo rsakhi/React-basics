@@ -4,27 +4,31 @@ import Person from './components/Person/person'
 
 class App extends Component {
   state = {
-    person: [{name: "Joe", age: "2p"},
-    {name: "Smith", age: "28"},
-    {name: "Kevin", age: "30"}]
+    persons: [{id: "11w3e", name: "Joe", age: "2p"},
+    {id: "6t6yui",name: "Smith", age: "28"},
+    {id: "67ty6u",name: "Kevin", age: "30"}]
   }
   
   clickHandler = (name) => {
     // alert(name)
   }
   
-  changeHandler = (index,event) => {
-    const person = [...this.state.person]
-    person[index].name = "jjj"
-    this.setState(person = person);
+  changeHandler = (event,index) => {
+    debugger
+    const person  = [...this.state.persons]
+    person[index].name = event.target.value 
+    this.setState({persons: person});
+  }
+
+  deletePerson = (id) => {
   }
 
   render() {
     const personList = (
-      this.state.person.map((p,index) => {
-        return <Person name={p.name} age={p.age}
-        cliked={() => this.clickHandler(p.name)}
-        changed={(event) => this.changeHandler(index)}
+      this.state.persons.map((p,index) => {
+        return <Person name={p.name} age={p.age} key={p.id}
+        cliked={() => this.deletePerson(p.id)}
+        changed={(event) => this.changeHandler(event,index)}
         />
       })
     )
