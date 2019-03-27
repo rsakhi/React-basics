@@ -13,14 +13,19 @@ class App extends Component {
     // alert(name)
   }
   
-  changeHandler = (event,index) => {
+  changeHandler = (event,id) => {
     debugger
-    const person  = [...this.state.persons]
-    person[index].name = event.target.value 
-    this.setState({persons: person});
+    const personIndex  = this.state.persons.findIndex(a => a.id === id)
+    const person = {...this.state.persons[personIndex]}
+    person.name = event.target.value
+    const persons = [...this.state.persons]
+    persons[personIndex] = person
+    this.setState({persons: persons});
   }
 
   deletePerson = (id) => {
+    const person = this.state.persons.filter(per => per.id !== id)
+    this.setState({persons: person});
   }
 
   render() {
@@ -28,7 +33,7 @@ class App extends Component {
       this.state.persons.map((p,index) => {
         return <Person name={p.name} age={p.age} key={p.id}
         cliked={() => this.deletePerson(p.id)}
-        changed={(event) => this.changeHandler(event,index)}
+        changed={(event) => this.changeHandler(event,p.id)}
         />
       })
     )
