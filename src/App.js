@@ -8,6 +8,7 @@ class App extends Component {
     persons: [{id: "11w3e", name: "Joe", age: "2p"},
     {id: "6t6yui",name: "Smith", age: "28"},
     {id: "67ty6u",name: "Kevin", age: "30"}],
+    showNewUserCart: false
   }
   
   clickHandler = (name) => {
@@ -30,7 +31,6 @@ class App extends Component {
   }
 
   addNewPerson = (event) => {
-    debugger
     const name = document.getElementById("name").value;
     const age = document.getElementById("age").value;
     const id = "7yefe7"
@@ -38,6 +38,12 @@ class App extends Component {
     const person = [newPerson, ...this.state.persons]
     this.setState({persons: person})
   }
+
+  toggleCart = () => {
+    const showcart = this.state.showNewUserCart
+    this.setState({showNewUserCart: !showcart})
+  }
+
   render() {
     const styleForPerson = {
       float: "left"
@@ -46,6 +52,7 @@ class App extends Component {
     const styleForNewPerson = {
       float: "right"
     }
+
     const personList = (
       this.state.persons.map((p,index) => {
         return <Person name={p.name} age={p.age} key={p.id}
@@ -62,11 +69,11 @@ class App extends Component {
         </header>
         <div>
           <div style={styleForNewPerson}> 
-            <button>Add New User</button>
-              <NewPerson addPersonClick={this.addNewPerson}/>
+            <button onClick={this.toggleCart}>Add New User</button>
+             {this.state.showNewUserCart ? <NewPerson addPersonClick={this.addNewPerson}/> : null}
           </div>
           <div style={styleForPerson}>
-            {personList}}
+            {personList}
           </div>
         </div>
       </div>
