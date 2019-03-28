@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './components/Person/person'
-import NewPerson from './components/Person/new_person'
-
+import Person from './components/Person/person';
+import NewPerson from './components/Person/new_person';
+import Radium from 'radium'
 class App extends Component {
   state = {
     persons: [{id: "11w3e", name: "Joe", age: "2p"},
@@ -16,7 +16,6 @@ class App extends Component {
   }
   
   changeHandler = (event,id) => {
-    debugger
     const personIndex  = this.state.persons.findIndex(a => a.id === id)
     const person = {...this.state.persons[personIndex]}
     person.name = event.target.value
@@ -52,7 +51,14 @@ class App extends Component {
     const styleForNewPerson = {
       float: "right"
     }
-
+    const buttonStyle = {
+      width: '70px',
+      backgroundColor: 'rgb(183, 183, 231)',
+      border: '2px solid rgb(115, 115, 216)',
+      padding: '4px',
+      borderRadius: '150px',
+      ':hover': {backgroundColor: 'rgb(115, 115, 216)'}
+    }
     const personList = (
       this.state.persons.map((p,index) => {
         return <Person name={p.name} age={p.age} key={p.id}
@@ -69,7 +75,7 @@ class App extends Component {
         </header>
         <div>
           <div style={styleForNewPerson}> 
-            <button onClick={this.toggleCart}>Add New User</button>
+            <button style = {buttonStyle} onClick={this.toggleCart}>Add New User</button>
              {this.state.showNewUserCart ? <NewPerson addPersonClick={this.addNewPerson}/> : null}
           </div>
           <div style={styleForPerson}>
@@ -81,4 +87,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Radium(App);
