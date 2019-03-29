@@ -2,7 +2,7 @@ import React from 'react'
 
 const newPerson = (props) => {
     return (
-        <div id="newPerson" className="person">
+        <div id="newPerson" className="Person">
             <label>Name</label>
             <input type="text" id="name"></input><br/>
             <label>Age</label>

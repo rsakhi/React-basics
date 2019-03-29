@@ -3,6 +3,7 @@ import './App.css';
 import Person from './components/Person/person';
 import NewPerson from './components/Person/new_person';
 import Radium from 'radium'
+
 class App extends Component {
   state = {
     persons: [{id: "11w3e", name: "Joe", age: "2p"},

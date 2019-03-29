@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
+import '../../App.css'
 
 const person = (props) => {
-        return (<div className="person">
+        return (<div className="Person">
         {props.name} | {props.age}<br/>
         <input type="test" onChange={props.changed} value={props.name}/><br/>
         <button onClick={props.cliked}>Delete</button>
