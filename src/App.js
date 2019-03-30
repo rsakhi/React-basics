@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './components/Person/person';
+import PersonList from './components/Person/person-list'
 import NewPerson from './components/Person/new_person';
 import Radium from 'radium'
 
@@ -61,12 +61,7 @@ class App extends Component {
       ':hover': {backgroundColor: 'rgb(115, 115, 216)'}
     }
     const personList = (
-      this.state.persons.map((p,index) => {
-        return <Person name={p.name} age={p.age} key={p.id}
-        cliked={() => this.deletePerson(p.id)}
-        changed={(event) => this.changeHandler(event,p.id)}
-        />
-      })
+      <PersonList persons={this.state.persons}></PersonList>
     )
 
     return (
