@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import PersonList from './components/Person/person-list'
-import NewPerson from './components/Person/new_person';
+import PersonList from '../components/Person/person-list'
+import NewPerson from '../components/Person/new_person';
 import Radium from 'radium'
 
 class App extends Component {
