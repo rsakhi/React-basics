@@ -1,5 +1,7 @@
 import React from 'react';
 import withClass from '../HOC/withClass';
+import PersonStyleSheet from './person.module.css'
+
 
 const newPerson = (props) => {
     return (
@@ -13,4 +15,4 @@ const newPerson = (props) => {
     )
 }
 
-export default withClass(newPerson, "Person")
+export default withClass(newPerson, PersonStyleSheet.Person)

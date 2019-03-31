@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import AppClasses from './App.module.css';
 import PersonList from '../components/Person/person-list'
 import NewPerson from '../components/Person/new_person';
 import Radium from 'radium'
@@ -34,6 +34,7 @@ class App extends Component {
   }
 
   addNewPerson = (event) => {
+    debugger
     const name = document.getElementById("name").value;
     const age = document.getElementById("age").value;
     const id = "7yefe7"
@@ -53,21 +54,10 @@ class App extends Component {
 	}
 
   render() {
-    const styleForPerson = {
-      float: "left"
-    }
+    const floatLeft = { float: "left" }
 
-    const styleForNewPerson = {
-      float: "right"
-    }
-    const buttonStyle = {
-      width: '70px',
-      backgroundColor: 'rgb(183, 183, 231)',
-      border: '2px solid rgb(115, 115, 216)',
-      padding: '4px',
-      borderRadius: '150px',
-      ':hover': {backgroundColor: 'rgb(115, 115, 216)'}
-    }
+    const floatRight = { float: "right"}
+    
     const personList = (
       <PersonList persons={this.state.persons}
       cliked={this.deletePerson}
@@ -75,18 +65,16 @@ class App extends Component {
     )
 
     return (
-      <div className="App">
-        <header className="App-header">
+      <div className={AppClasses.App}>
+        <header className={AppClasses.AppHeader}>
             {this.props.title}
         </header>
         <div>
-          <div style={styleForNewPerson}> 
-            <button style = {buttonStyle} onClick={this.toggleCart}>Add New User</button>
+          <div style={floatRight}> 
+            <button className={AppClasses.btn} onClick={this.toggleCart}>Add New User</button>
              {this.state.showNewUserCart ? <NewPerson addPersonClick={this.addNewPerson}/> : null}
           </div>
-          <div style={styleForPerson}>
-            {personList}
-          </div>
+          <div style={floatLeft}>{personList}</div>
         </div>
       </div>
     );

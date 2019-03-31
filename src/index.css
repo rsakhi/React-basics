@@ -2,3 +2,15 @@ body {
   margin: 0;
   padding: 0;
 }
+
+button {
+  width: 70px;
+  background-color: rgb(183, 183, 231);
+  border: 2px solid rgb(115, 115, 216);
+  padding: 4px;
+  border-radius: 150px;
+}
+
+button:hover {
+  background-color: rgb(115, 115, 216)
+}
