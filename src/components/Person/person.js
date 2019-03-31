@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react';
 import '../../containers/App.css'
 import Aux from '../HOC/Aux'
+import personType from'./Person-modle'
+
 
 const person = (props) => {
   useEffect(() => {
@@ -19,4 +21,7 @@ const person = (props) => {
     Adjacent JSX elements
   </p></Aux>
 }
+
+//set DataType of person input
+person.propTypes = personType
 export default person

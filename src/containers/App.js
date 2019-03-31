@@ -6,9 +6,9 @@ import Radium from 'radium'
 
 class App extends Component {
   state = {
-    persons: [{id: "11w3e", name: "Joe", age: "2p"},
-    {id: "6t6yui",name: "Smith", age: "28"},
-    {id: "67ty6u",name: "Kevin", age: "30"}],
+    persons: [{id: "11w3e", name: "Joe", age: 22},
+    {id: "6t6yui",name: "Smith", age: 12},
+    {id: "67ty6u",name: "Kevin", age: 30}],
     showNewUserCart: false
   }
   
@@ -39,6 +39,7 @@ class App extends Component {
     const id = "7yefe7"
     const newPerson = {name: name, age: age, id: id}
     const person = [newPerson, ...this.state.persons]
+    debugger
     this.setState({persons: person})
   }
 
