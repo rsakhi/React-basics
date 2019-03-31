@@ -47,6 +47,10 @@ class App extends Component {
     this.setState({showNewUserCart: !showcart})
   }
 
+  componentWillUnmount(){
+		console.log("unmounted App")
+	}
+
   render() {
     const styleForPerson = {
       float: "left"

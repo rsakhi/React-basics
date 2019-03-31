@@ -4,7 +4,10 @@ import Aux from '../HOC/Aux'
 
 const person = (props) => {
   useEffect(() => {
-    console.log("person")
+    console.log("person");
+    return () => {
+      console.log("remove")
+    }
   },[props.name])
   
   return <Aux><div className="Person">
