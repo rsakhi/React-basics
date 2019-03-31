@@ -16,6 +16,9 @@ class App extends Component {
     // alert(name)
   }
   
+  componentWillMount() {
+    console.log("mounted")
+  }
   changeHandler = (event,id) => {
     const personIndex  = this.state.persons.findIndex(a => a.id === id)
     const person = {...this.state.persons[personIndex]}
@@ -61,7 +64,9 @@ class App extends Component {
       ':hover': {backgroundColor: 'rgb(115, 115, 216)'}
     }
     const personList = (
-      <PersonList persons={this.state.persons}></PersonList>
+      <PersonList persons={this.state.persons}
+      cliked={this.deletePerson}
+      updateName={this.changeHandler}></PersonList>
     )
 
     return (

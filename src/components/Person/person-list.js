@@ -4,8 +4,8 @@ const PersonList = (props) => {
     return (
         props.persons.map((p,index) => {
             return <Person name={p.name} age={p.age} key={p.id}
-            cliked={() => this.deletePerson(p.id)}
-            changed={(event) => this.changeHandler(event,p.id)}
+            cliked={() => props.cliked(p.id)}
+            changed={(event) => props.updateName(event,p.id)}
             />
           })
     )
